@@ -1,0 +1,21 @@
+#服务相关设置
+server:
+    port: 5122
+#Spring相关设置
+spring:
+    #数据源相关配置
+    datasource:
+        url: jdbc:mariadb://118.24.3.84:3306/course_management?characterEncoding=utf8
+        username: zhangbin
+        password: zhangbin
+        driver-class-name: org.mariadb.jdbc.Driver
+    #Java持久化API相关配置
+    jpa:
+        hibernate:
+            dialect: org.hibernate.dialect.MariaDB10Dialect
+            ddl-auto: update
+        open-in-view: false
+        show-sql: true
+#MyBatis相关配置
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
