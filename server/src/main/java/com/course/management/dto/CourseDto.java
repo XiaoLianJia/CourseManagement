@@ -50,7 +50,7 @@ public class CourseDto implements Serializable {
 	private String signUpStartDateTime;
 
 	/**
-	 * 报名截止时间，格式：yyyy-MM-dd HH:mm:ss。
+	 * 截止报名时间，格式：yyyy-MM-dd HH:mm:ss。
 	 */
 	private String signUpEndDateTime;
 

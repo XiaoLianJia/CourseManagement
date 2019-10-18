@@ -64,7 +64,7 @@ public class Course implements Serializable {
 	private String signUpStartDateTime;
 
 	/**
-	 * 报名截止时间，格式：yyyy-MM-dd HH:mm:ss。
+	 * 截止报名时间，格式：yyyy-MM-dd HH:mm:ss。
 	 */
 	@Column(name = "sign_up_end_date_time", nullable = false)
 	private String signUpEndDateTime;
