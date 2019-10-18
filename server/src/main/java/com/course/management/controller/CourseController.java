@@ -1,0 +1,50 @@
+package com.course.management.controller;
+
+import com.course.management.dto.CourseDto;
+import com.course.management.http.PageRequest;
+import com.course.management.http.Response;
+import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * <p>
+ *     课程信息控制层
+ * </p>
+ * @author zhangbin
+ * @date 2019-10-18
+ */
+@Slf4j
+@RestController
+@RequestMapping("course")
+public class CourseController {
+
+	@RequestMapping("add")
+	public Response add(@RequestBody CourseDto courseDto) {
+
+		return Response.success();
+	}
+
+	@RequestMapping("remove")
+	public Response remove(@RequestBody CourseDto courseDto) {
+
+		return Response.success();
+	}
+
+	@RequestMapping("update")
+	public Response update(@RequestBody CourseDto courseDto) {
+
+		return Response.success();
+	}
+
+	@RequestMapping("page")
+	public Response<List<CourseDto>> page(@RequestBody PageRequest<CourseDto> pageRequest) {
+
+		PageInfo pageInfo = new PageInfo();
+		return Response.pageSuccess(pageInfo);
+	}
+}
