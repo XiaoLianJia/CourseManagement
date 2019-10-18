@@ -21,20 +21,20 @@ import java.io.Serializable;
 public class Course implements Serializable {
 
 	/**
-	 * 课程编码。
+	 * 编码。
 	 */
 	@Id
 	@Column(name = "id", nullable = false, length = 64)
 	private String id;
 
 	/**
-	 * 课程名称。
+	 * 名称。
 	 */
 	@Column(name = "name", nullable = false)
 	private String name;
 
 	/**
-	 * 课程类型。
+	 * 类型。
 	 */
 	@Column(name = "type", nullable = false, length = 1)
 	private String type;
