@@ -12,7 +12,12 @@ public enum ResponseResults {
 	/**
 	 * 无异常。
 	 */
-	SUCCESS("200", "OK");
+	SUCCESS("200", "OK"),
+
+	/**
+	 * 参数不全。
+	 */
+	ERROR_PARAMETER_MISSING("4001", "缺少参数/参数为空");
 
 	/**
 	 * 响应码。

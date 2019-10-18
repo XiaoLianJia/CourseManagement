@@ -1,10 +1,14 @@
 package com.course.management.controller;
 
 import com.course.management.dto.LecturerDto;
+import com.course.management.enums.ResponseResults;
 import com.course.management.http.PageRequest;
 import com.course.management.http.Response;
+import com.course.management.service.ILecturerService;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,8 +27,23 @@ import java.util.List;
 @RequestMapping("lecturer")
 public class LecturerController {
 
+	@Autowired
+	private ILecturerService lecturerService;
+
 	@RequestMapping("add")
 	public Response add(@RequestBody LecturerDto lecturerDto) {
+
+		// 参数完整性校验。
+		if (StringUtils.isEmpty(lecturerDto.getName())
+				|| StringUtils.isEmpty(lecturerDto.getCellphoneNumber())) {
+			return Response.error(ResponseResults.ERROR_PARAMETER_MISSING);
+		}
+
+		// 重复性校验。
+
+		// 工号校验。
+
+		// 入库。
 
 		return Response.success();
 	}

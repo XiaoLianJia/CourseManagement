@@ -1,5 +1,6 @@
 package com.course.management.service.impl;
 
+import com.course.management.entity.Student;
 import com.course.management.service.IStudentService;
 import org.springframework.stereotype.Service;
 
@@ -12,4 +13,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StudentServiceImpl implements IStudentService {
+
+	@Override
+	public void insert(Student student) {
+
+	}
+
+	@Override
+	public void delete(Student student) {
+
+	}
+
+	@Override
+	public void update(Student student) {
+
+	}
 }
