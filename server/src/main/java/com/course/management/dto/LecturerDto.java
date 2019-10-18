@@ -13,4 +13,34 @@ import java.io.Serializable;
  */
 @Data
 public class LecturerDto implements Serializable {
+
+	/**
+	 * 工号。
+	 */
+	private String id;
+
+	/**
+	 * 姓名。
+	 */
+	private String name;
+
+	/**
+	 * 手机号码。
+	 */
+	private String cellphoneNumber;
+
+	/**
+	 * 性别（0：女，1：男，2：其它）。
+	 */
+	private String gender;
+
+	/**
+	 * 年龄。
+	 */
+	private Integer age;
+
+	/**
+	 * 生日，格式：yyyy-MM-dd。
+	 */
+	private String birthday;
 }

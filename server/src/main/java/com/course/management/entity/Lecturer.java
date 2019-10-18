@@ -40,7 +40,7 @@ public class Lecturer implements Serializable {
 	private String cellphoneNumber;
 
 	/**
-	 * 性别（0：女，1：男，2：其他）。
+	 * 性别（0：女，1：男，2：其它）。
 	 */
 	@Column(name = "gender", length = 1)
 	private String gender;
