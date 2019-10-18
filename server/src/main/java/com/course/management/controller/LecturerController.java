@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * <p>
- *     授课人员信息控制层
+ *     讲师信息控制层
  * </p>
  * @author zhangbin
  * @date 2019-10-18

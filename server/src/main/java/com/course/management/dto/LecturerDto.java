@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- *     授课人员信息数据传输类
+ *     讲师信息数据传输类
  * </p>
  * @author zhangbin
  * @date 2019-10-18

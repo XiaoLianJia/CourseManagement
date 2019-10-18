@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- *     授课人员信息实体类
+ *     讲师信息实体类
  * </p>
  * @author zhangbin
  * @date 2019-10-15

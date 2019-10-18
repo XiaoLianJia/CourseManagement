@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * <p>
- *     授课人员信息持久化类
+ *     讲师信息持久化类
  * </p>
  * @author zhangbin
  * @date 2019-10-15
