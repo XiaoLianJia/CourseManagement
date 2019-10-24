@@ -1,5 +1,5 @@
 <!--
-    Description: 主页
+    Description: 课时信息页
     Author: zhangbin
     Date: 2019-10-24
 -->
@@ -7,18 +7,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>YQYQ</title>
+    <title>课时信息</title>
     <link th:href="@{/layui/css/layui.css}" rel="stylesheet" />
     <link rel="icon" href="/images/logo.jpg" />
 </head>
-<body class="layui-layout-body">
+<body>
     <div class="layui-layout layui-layout-admin">
         <!-- HEAD -->
         <div th:replace="fragments/header::header"></div>
 
         <!-- BODY -->
         <div class="layui-body">
-            <div class="layui-container"></div>
+
+            <table id="lessonList" lay-filter="lessonTable"></table>
         </div>
 
         <!-- FOOT -->

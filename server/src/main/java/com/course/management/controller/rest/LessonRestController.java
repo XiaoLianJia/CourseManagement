@@ -1,4 +1,4 @@
-package com.course.management.controller;
+package com.course.management.controller.rest;
 
 import com.course.management.dto.LessonDto;
 import com.course.management.http.PageRequest;
@@ -20,8 +20,8 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("lesson")
-public class LessonController {
+@RequestMapping("rest/lesson")
+public class LessonRestController {
 
 	@RequestMapping("add")
 	public Response add(@RequestBody LessonDto lessonDto) {
