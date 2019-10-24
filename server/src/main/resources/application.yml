@@ -1,6 +1,7 @@
 #服务相关设置
 server:
     port: 5122
+
 #Spring相关设置
 spring:
     #数据源相关配置
@@ -12,10 +13,16 @@ spring:
     #Java持久化API相关配置
     jpa:
         hibernate:
-            dialect: org.hibernate.dialect.MariaDB10Dialect
             ddl-auto: update
         open-in-view: false
+        properties:
+          hibernate:
+            dialect: org.hibernate.dialect.MariaDB10Dialect
         show-sql: true
+    #静态资源路径相关配置
+    resources:
+        static-locations: classpath:static/,file:static/
+
 #MyBatis相关配置
 mybatis:
     mapperLocations: classpath:mapper/*.xml
