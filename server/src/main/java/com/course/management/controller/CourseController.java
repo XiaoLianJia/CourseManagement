@@ -9,13 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -49,27 +44,5 @@ public class CourseController {
 		Page<Course> courses = courseRepository.findAll(PageRequest.of(page, size));
 		model.addAttribute("courses", courses);
 		return "/course/courseInfo";
-	}
-
-	@RequestMapping("lesson")
-	public String lessonInfo() {
-		return "/course/lesson";
-	}
-
-	@ResponseBody
-	@RequestMapping("courseList")
-	public String courseList(Model model) {
-
-		List<Course> courses = new ArrayList<>();
-		model.addAttribute("customers", courses);
-		return "";
-	}
-
-	@ResponseBody
-	@RequestMapping("setCourse")
-	public Map<String, Object> setCourse() {
-		Map<String, Object> map = new HashMap<>(16);
-
-		return map;
 	}
 }
