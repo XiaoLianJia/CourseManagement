@@ -3,7 +3,6 @@ package com.course.management.controller;
 import com.course.management.model.Course;
 import com.course.management.repository.CourseRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("course")
 public class CourseController {
 
-	@Autowired
+	@Resource
 	private CourseRepository courseRepository;
 
 	@RequestMapping("add")
