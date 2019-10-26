@@ -5,12 +5,12 @@
 -->
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head::head(~{::title},~{},~{})">
+<head th:replace="fragments/head :: head(~{:: title},~{},~{})">
     <title>Home Page</title>
 </head>
 <body>
     <!-- 通用导航栏 -->
-    <div th:replace="fragments/navigationBar::navigationBar"></div>
+    <div th:replace="fragments/navigationBar :: navigationBar"></div>
     <!-- 页面主体 -->
     <div class="container-fluid" style="margin-top:80px">
         <h1>Hello !</h1>
@@ -20,6 +20,6 @@
         <h1>滚动页面查看效果。</h1>
     </div>
     <!-- 通用页脚 -->
-    <div th:replace="fragments/footer::footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

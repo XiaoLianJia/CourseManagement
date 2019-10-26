@@ -5,12 +5,12 @@
 -->
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head::head(~{::title},~{},~{})">
+<head th:replace="fragments/head::head(~{:: title},~{},~{})">
     <title>Course Information</title>
 </head>
 <body>
     <!-- 通用导航栏 -->
-    <div th:replace="fragments/navigationBar::navigationBar"></div>
+    <div th:replace="fragments/navigationBar :: navigationBar"></div>
     <!-- 页面主体 -->
     <div class="container" style="margin-top:80px">
         <!-- 按钮 -->
@@ -19,11 +19,11 @@
             新增课程
         </button>
         <!-- 模态框 -->
-        <div th:replace="fragments/modals/courseInfoModal::courseInfoModal"></div>
+        <div th:replace="fragments/modals/courseInfoModal :: courseInfoModal"></div>
         <!-- 数据表格 -->
-        <div th:replace="fragments/tables/courseInfoTable::courseInfoTable"></div>
+        <div th:replace="fragments/tables/courseInfoTable :: courseInfoTable"></div>
     </div>
     <!-- 通用页脚 -->
-    <div th:replace="fragments/footer::footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
