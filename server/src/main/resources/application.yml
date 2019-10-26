@@ -4,6 +4,10 @@ server:
 
 #Spring相关设置
 spring:
+    #应用相关配置
+    application:
+        name:
+            YQYQ Course Management
     #数据源相关配置
     datasource:
         url: jdbc:mariadb://118.24.3.84:3306/course_management?characterEncoding=utf8
@@ -25,8 +29,11 @@ spring:
     #模板引擎相关配置
     thymeleaf:
         cache: false
-        mode: HTML
+        enabled: true
         encoding: UTF-8
+        mode: HTML
+        prefix: classpath:/templates/
+        suffix: .html
 
 #MyBatis相关配置
 mybatis:
