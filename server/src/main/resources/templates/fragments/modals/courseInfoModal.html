@@ -16,26 +16,29 @@
                 </div>
                 <!-- 模态框主体 -->
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="#"
+                          th:action="@{/course/add}" th:object="${course}">
                         <div class="form-group">
                             <label for="name">名称：</label>
-                            <input id="name" type="text" class="form-control">
+                            <input id="name" type="text" class="form-control"
+                                   th:field="*{name}">
                         </div>
                         <div class="form-group">
                             <label for="lessonCount">课时数：</label>
-                            <input id="lessonCount" type="number" class="form-control">
+                            <input id="lessonCount" type="number" class="form-control"
+                                   th:field="*{lessonCount}">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox"> Remember me
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">提交</button>
-                        <button type="reset" class="btn btn-secondary">重置</button>
                     </form>
                 </div>
                 <!-- 模态框底部 -->
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="reset" class="btn btn-secondary">重置</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                 </div>
             </div>

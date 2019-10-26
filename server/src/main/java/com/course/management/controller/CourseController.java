@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,13 @@ public class CourseController {
 	@Autowired
 	private CourseRepository courseRepository;
 
+	@RequestMapping("add")
+	public String add(@ModelAttribute Course course) {
+
+		courseRepository.save(course);
+		return "";
+	}
+
 	@RequestMapping("courseInfo")
 	public String courseInfo(HttpServletRequest request, Model model) {
 		int page = 0;
@@ -43,6 +51,7 @@ public class CourseController {
 
 		Page<Course> courses = courseRepository.findAll(PageRequest.of(page, size));
 		model.addAttribute("courses", courses);
-		return "/course/courseInfo";
+		model.addAttribute("course", new Course());
+		return "course/courseInfo";
 	}
 }
