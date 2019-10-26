@@ -1,6 +1,6 @@
 package com.course.management.repository;
 
-import com.course.management.entity.Lecturer;
+import com.course.management.model.Lecturer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

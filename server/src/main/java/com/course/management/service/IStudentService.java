@@ -1,6 +1,6 @@
 package com.course.management.service;
 
-import com.course.management.entity.Student;
+import com.course.management.model.Student;
 
 /**
  * <p>

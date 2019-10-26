@@ -1,4 +1,4 @@
-package com.course.management.entity;
+package com.course.management.model;
 
 import lombok.Data;
 

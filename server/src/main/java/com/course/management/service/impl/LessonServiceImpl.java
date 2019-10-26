@@ -1,6 +1,6 @@
 package com.course.management.service.impl;
 
-import com.course.management.entity.Lesson;
+import com.course.management.model.Lesson;
 import com.course.management.service.ILessonService;
 import org.springframework.stereotype.Service;
 

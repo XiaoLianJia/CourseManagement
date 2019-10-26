@@ -1,6 +1,6 @@
 package com.course.management.service.impl;
 
-import com.course.management.entity.Lecturer;
+import com.course.management.model.Lecturer;
 import com.course.management.repository.LecturerRepository;
 import com.course.management.service.ILecturerService;
 import org.springframework.beans.factory.annotation.Autowired;

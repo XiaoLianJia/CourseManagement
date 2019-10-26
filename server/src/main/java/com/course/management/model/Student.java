@@ -1,4 +1,4 @@
-package com.course.management.entity;
+package com.course.management.model;
 
 import lombok.Data;
 
@@ -10,18 +10,18 @@ import java.io.Serializable;
 
 /**
  * <p>
- *     讲师信息实体类
+ *     学生信息实体类
  * </p>
  * @author zhangbin
  * @date 2019-10-15
  */
 @Data
 @Entity
-@Table(name = "lecturer")
-public class Lecturer implements Serializable {
+@Table(name = "student")
+public class Student implements Serializable {
 
 	/**
-	 * 工号。
+	 * 学号。
 	 */
 	@Id
 	@Column(name = "id", nullable = false, length = 64)
@@ -34,10 +34,10 @@ public class Lecturer implements Serializable {
 	private String name;
 
 	/**
-	 * 手机号码。
+	 * 身份证号码。
 	 */
-	@Column(name = "cellphone_number")
-	private String cellphoneNumber;
+	@Column(name = "identification_number")
+	private String identificationNumber;
 
 	/**
 	 * 性别（0：女，1：男，2：其它）。
