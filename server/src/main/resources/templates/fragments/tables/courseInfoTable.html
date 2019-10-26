@@ -1,0 +1,72 @@
+<!--
+    Description: 数据表格/课程信息数据表格
+    Author: zhangbin
+    Date: 2019-10-26
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<div th:fragment="courseInfoTable">
+    <!-- 数据表格 -->
+    <table id="table" class="table table-hover table-responsive-md">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>类型</th>
+            <th>课时数</th>
+            <th>起始日期</th>
+            <th>结束日期</th>
+            <th>开放报名时间</th>
+            <th>截止报名时间</th>
+            <th>报名人数</th>
+            <th>课程负责人</th>
+            <th>课程简介</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course, rowStat: ${courses}"
+            th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.name}"></td>
+            <td th:text="${course.type}"></td>
+            <td th:text="${course.lessonCount}"></td>
+            <td th:text="${course.startDate}"></td>
+            <td th:text="${course.endDate}"></td>
+            <td th:text="${course.signUpStartDateTime}"></td>
+            <td th:text="${course.signUpEndDateTime}"></td>
+            <td th:text="${course.applicantsCount}"></td>
+            <td th:text="${course.manager}"></td>
+            <td th:text="${course.introduction}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- 分页导航 -->
+    <nav aria-label="Pagination" th:if="${courses.totalPages gt 0}">
+        <ul class="pagination justify-content-center font-weight-bold">
+            <li class="page-item" th:classappend="${courses.number eq 0} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/courses?page={id}(id=${courses.number lt 2 ? 1 : courses.number})}"
+                   aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${i eq courses.number + 1} ? 'active'"
+                th:each="i : ${#numbers.sequence( 1, courses.totalPages, 1)}">
+                <a class="page-link" data-toggle="tooltip"
+                   th:href="@{/courses?page={id}(id=${i})}"
+                   th:text="${i}"
+                   th:title="${'Page '+ i}" ></a>
+            </li>
+            <li class="page-item"
+                th:classappend="${courses.number + 1 eq courses.totalPages} ? 'disabled'">
+                <a class="page-link" aria-label="Next" title="Next Page" data-toggle="tooltip"
+                   th:href="@{/courses?page={id}(id=${courses.number + 2})}">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
