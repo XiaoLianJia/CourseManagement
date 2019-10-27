@@ -28,6 +28,6 @@ public class ExceptionAdvice {
         modelAndView.addObject("exception", e.getClass());
         modelAndView.addObject("trace", e.getStackTrace());
         modelAndView.setViewName("error");
-        return  modelAndView;
+        return modelAndView;
     }
 }
