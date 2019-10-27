@@ -18,7 +18,6 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     public ModelAndView exception(Exception e) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", e);
         modelAndView.setViewName("error");
         return  modelAndView;
     }
@@ -26,7 +25,6 @@ public class ExceptionAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ModelAndView methodArgumentNotValidException(MethodArgumentNotValidException e) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", e);
         modelAndView.setViewName("error");
         return  modelAndView;
     }
@@ -34,7 +32,6 @@ public class ExceptionAdvice {
     @ExceptionHandler(BusinessException.class)
     public ModelAndView businessException(BusinessException e) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", e);
         modelAndView.setViewName("error");
         return  modelAndView;
     }

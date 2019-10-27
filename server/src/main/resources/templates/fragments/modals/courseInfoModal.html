@@ -14,33 +14,68 @@
                     <h4 class="modal-title">课程信息</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <!-- 模态框主体 -->
-                <div class="modal-body">
-                    <form method="post" action="#"
-                          th:action="@{/course/add}" th:object="${course}">
+                <form method="post" action="#"
+                            th:action="@{/course/add}" th:object="${course}">
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="name">名称：</label>
                             <input id="name" type="text" class="form-control"
                                    th:field="*{name}">
                         </div>
                         <div class="form-group">
+                            <label for="type">类型：</label>
+                            <input id="type" type="text" class="form-control"
+                                   th:field="*{type}">
+                        </div>
+                        <div class="form-group">
                             <label for="lessonCount">课时数：</label>
                             <input id="lessonCount" type="number" class="form-control"
                                    th:field="*{lessonCount}">
                         </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox"> Remember me
-                            </label>
+                        <div class="form-group">
+                            <label for="startDate">起始日期：</label>
+                            <input id="startDate" type="date" class="form-control"
+                                   th:field="*{startDate}">
                         </div>
+                        <div class="form-group">
+                            <label for="endDate">结束日期：</label>
+                            <input id="endDate" type="date" class="form-control"
+                                   th:field="*{endDate}">
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpStartDateTime">开放报名时间：</label>
+                            <input id="signUpStartDateTime" type="datetime-local" class="form-control"
+                                   th:field="*{signUpStartDateTime}">
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpEndDateTime">截止报名时间：</label>
+                            <input id="signUpEndDateTime" type="datetime-local" class="form-control"
+                                   th:field="*{signUpEndDateTime}">
+                        </div>
+                        <div class="form-group">
+                            <label for="applicantsCount">报名人数：</label>
+                            <input id="applicantsCount" type="number" class="form-control"
+                                   th:field="*{applicantsCount}">
+                        </div>
+                        <div class="form-group">
+                            <label for="manager">负责人：</label>
+                            <input id="manager" type="text" class="form-control"
+                                   th:field="*{manager}">
+                        </div>
+                        <div class="form-group">
+                            <label for="introduction">简介：</label>
+                            <input id="introduction" type="text" class="form-control"
+                                   th:field="*{introduction}">
+                        </div>
+                    </div>
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">提交</button>
                         <button type="reset" class="btn btn-secondary">重置</button>
-                    </form>
-                </div>
-                <!-- 模态框底部 -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

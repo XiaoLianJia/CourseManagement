@@ -6,12 +6,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * <p>
@@ -29,12 +33,24 @@ public class CourseController {
 	private CourseRepository courseRepository;
 
 	@RequestMapping("add")
-	public ModelAndView add(@ModelAttribute Course course) {
+	public ModelAndView add(@Valid @ModelAttribute Course course,
+							BindingResult result) {
 		log.info("add");
+		ModelAndView modelAndView = new ModelAndView();
+
+		if (result.hasErrors()) {
+			List<ObjectError> error = result.getAllErrors();
+			for (ObjectError e : error) {
+				System.out.println(e);
+			}
+			modelAndView.addObject("message", "出错了");
+			modelAndView.setViewName("course/courseInfo");
+			return modelAndView;
+		}
+		course.setId("002");
 
 		courseRepository.save(course);
-
-		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("course/courseInfo");
 		return modelAndView;
 	}
 

@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 /**
@@ -30,13 +31,14 @@ public class Course implements Serializable {
 	/**
 	 * 名称。
 	 */
+	@NotEmpty(message="名称不能为空")
 	@Column(name = "name", nullable = false)
 	private String name;
 
 	/**
 	 * 类型。
 	 */
-	@Column(name = "type", nullable = false, length = 1)
+	@Column(name = "type", length = 1)
 	private String type;
 
 	/**
@@ -46,27 +48,27 @@ public class Course implements Serializable {
 	private Integer lessonCount;
 
 	/**
-	 * 课程起始日期，格式：yyyy-MM-dd。
+	 * 起始日期，格式：yyyy-MM-dd。
 	 */
-	@Column(name = "start_date", nullable = false)
+	@Column(name = "start_date")
 	private String startDate;
 
 	/**
-	 * 课程结束日期，格式：yyyy-MM-dd。
+	 * 结束日期，格式：yyyy-MM-dd。
 	 */
-	@Column(name = "end_date", nullable = false)
+	@Column(name = "end_date")
 	private String endDate;
 
 	/**
 	 * 开放报名时间，格式：yyyy-MM-dd HH:mm:ss。
 	 */
-	@Column(name = "sign_up_start_date_time", nullable = false)
+	@Column(name = "sign_up_start_date_time")
 	private String signUpStartDateTime;
 
 	/**
 	 * 截止报名时间，格式：yyyy-MM-dd HH:mm:ss。
 	 */
-	@Column(name = "sign_up_end_date_time", nullable = false)
+	@Column(name = "sign_up_end_date_time")
 	private String signUpEndDateTime;
 
 	/**
@@ -76,13 +78,14 @@ public class Course implements Serializable {
 	private Integer applicantsCount;
 
 	/**
-	 * 课程负责人。
+	 * 负责人。
 	 */
+	@NotEmpty(message="负责人不能为空")
 	@Column(name = "manager", nullable = false)
 	private String manager;
 
 	/**
-	 * 课程简介。
+	 * 简介。
 	 */
 	@Column(name = "introduction")
 	private String introduction;
