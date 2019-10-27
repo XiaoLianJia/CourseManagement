@@ -116,6 +116,7 @@
     </dependencies>
 
     <build>
+        <finalName>${name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -123,6 +124,7 @@
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
+                    <executable>true</executable>
                     <mainClass>com.course.management.Application</mainClass>
                 </configuration>
             </plugin>
