@@ -6,9 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,17 +29,17 @@ public class CourseController {
 	private CourseRepository courseRepository;
 
 	@RequestMapping("add")
-	public String add(@ModelAttribute Course course) {
+	public ModelAndView add(@ModelAttribute Course course) {
 		log.info("add");
 
 		courseRepository.save(course);
-		return "";
+
+		ModelAndView modelAndView = new ModelAndView();
+		return modelAndView;
 	}
 
 	@RequestMapping("courseInfo")
-	public String courseInfo(HttpServletRequest request, Model model) {
-		log.info("courseInfo");
-
+	public ModelAndView courseInfo(HttpServletRequest request) {
 		int page = 0;
 		if (null != request.getParameter("page")
 				&& ! request.getParameter("page").isEmpty()) {
@@ -53,8 +53,11 @@ public class CourseController {
 		}
 
 		Page<Course> courses = courseRepository.findAll(PageRequest.of(page, size));
-		model.addAttribute("courses", courses);
-		model.addAttribute("course", new Course());
-		return "course/courseInfo";
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("courses", courses);
+		modelAndView.addObject("course", new Course());
+		modelAndView.setViewName("course/courseInfo");
+		return modelAndView;
 	}
 }
