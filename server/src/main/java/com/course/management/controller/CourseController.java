@@ -30,6 +30,7 @@ public class CourseController {
 
 	@RequestMapping("add")
 	public String add(@ModelAttribute Course course) {
+		log.info("add");
 
 		courseRepository.save(course);
 		return "";
@@ -37,6 +38,8 @@ public class CourseController {
 
 	@RequestMapping("courseInfo")
 	public String courseInfo(HttpServletRequest request, Model model) {
+		log.info("courseInfo");
+
 		int page = 0;
 		if (null != request.getParameter("page")
 				&& ! request.getParameter("page").isEmpty()) {
