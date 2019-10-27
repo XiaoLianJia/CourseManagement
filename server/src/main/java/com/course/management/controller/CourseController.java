@@ -33,25 +33,19 @@ public class CourseController {
 	private CourseRepository courseRepository;
 
 	@RequestMapping("add")
-	public ModelAndView add(@Valid @ModelAttribute Course course,
+	public String add(@Valid @ModelAttribute Course course,
 							BindingResult result) {
 		log.info("add");
-		ModelAndView modelAndView = new ModelAndView();
 
 		if (result.hasErrors()) {
 			List<ObjectError> error = result.getAllErrors();
 			for (ObjectError e : error) {
 				System.out.println(e);
 			}
-			modelAndView.addObject("message", "出错了");
-			modelAndView.setViewName("course/courseInfo");
-			return modelAndView;
 		}
-		course.setId("002");
-
+		course.setId("003");
 		courseRepository.save(course);
-		modelAndView.setViewName("course/courseInfo");
-		return modelAndView;
+		return "redirect:courseInfo";
 	}
 
 	@RequestMapping("courseInfo")

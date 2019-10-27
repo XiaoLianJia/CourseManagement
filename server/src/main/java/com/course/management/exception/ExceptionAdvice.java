@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
+
 /**
  * <p>
  *     全局异常处理
@@ -15,23 +17,17 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class ExceptionAdvice {
 
-    @ExceptionHandler(Exception.class)
-    public ModelAndView exception() {
+    @ExceptionHandler
+    public ModelAndView exception(Exception e) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("error");
-        return  modelAndView;
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ModelAndView methodArgumentNotValidException() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("error");
-        return  modelAndView;
-    }
-
-    @ExceptionHandler(BusinessException.class)
-    public ModelAndView businessException() {
-        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("timestamp", new Date());
+        modelAndView.addObject("path", "");
+        modelAndView.addObject("error", "");
+        modelAndView.addObject("code", "");
+        modelAndView.addObject("status", "");
+        modelAndView.addObject("message", e.getMessage());
+        modelAndView.addObject("exception", e.getClass());
+        modelAndView.addObject("trace", e.getStackTrace());
         modelAndView.setViewName("error");
         return  modelAndView;
     }
