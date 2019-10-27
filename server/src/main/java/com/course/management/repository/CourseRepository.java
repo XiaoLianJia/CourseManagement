@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @date 2019-10-15
  */
 @Repository
-public interface CourseRepository extends JpaRepository<Course, String> {
+public interface CourseRepository extends JpaRepository<Course, Integer> {
 }

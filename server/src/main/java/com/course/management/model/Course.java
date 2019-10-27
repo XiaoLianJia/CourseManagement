@@ -3,10 +3,7 @@ package com.course.management.model;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
@@ -26,8 +23,9 @@ public class Course implements Serializable {
 	 * 编码。
 	 */
 	@Id
-	@Column(name = "id", nullable = false, length = 64)
-	private String id;
+	@GeneratedValue
+	@Column(name = "id", nullable = false, unique = true, length = 64)
+	private Integer id;
 
 	/**
 	 * 名称。

@@ -43,7 +43,7 @@ public class CourseController {
 				System.out.println(e);
 			}
 		}
-		course.setId("003");
+
 		courseRepository.save(course);
 		return "redirect:courseInfo";
 	}
@@ -56,7 +56,7 @@ public class CourseController {
 			page = Integer.parseInt(request.getParameter("page")) - 1;
 		}
 
-		int size = 10;
+		int size = 8;
 		if (null != request.getParameter("size")
 				&& !request.getParameter("size").isEmpty()) {
 			size = Integer.parseInt(request.getParameter("size"));
