@@ -16,21 +16,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class ExceptionAdvice {
 
     @ExceptionHandler(Exception.class)
-    public ModelAndView exception(Exception e) {
+    public ModelAndView exception() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error");
         return  modelAndView;
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ModelAndView methodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public ModelAndView methodArgumentNotValidException() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error");
         return  modelAndView;
     }
 
     @ExceptionHandler(BusinessException.class)
-    public ModelAndView businessException(BusinessException e) {
+    public ModelAndView businessException() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error");
         return  modelAndView;

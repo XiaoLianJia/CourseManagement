@@ -25,8 +25,12 @@
                         </div>
                         <div class="form-group">
                             <label for="type">类型：</label>
-                            <input id="type" type="text" class="form-control"
-                                   th:field="*{type}">
+                            <select id="type" class="form-control" th:field="*{type}">
+                                <option value="0">类型1</option>
+                                <option value="1">类型2</option>
+                                <option value="2">类型3</option>
+                                <option value="4">类型4</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="lessonCount">课时数：</label>

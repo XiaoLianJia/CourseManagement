@@ -1,6 +1,7 @@
 package com.course.management.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,24 +51,28 @@ public class Course implements Serializable {
 	/**
 	 * 起始日期，格式：yyyy-MM-dd。
 	 */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "start_date")
 	private String startDate;
 
 	/**
 	 * 结束日期，格式：yyyy-MM-dd。
 	 */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "end_date")
 	private String endDate;
 
 	/**
-	 * 开放报名时间，格式：yyyy-MM-dd HH:mm:ss。
+	 * 开放报名时间，格式：yyyy-MM-dd HH:mm。
 	 */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	@Column(name = "sign_up_start_date_time")
 	private String signUpStartDateTime;
 
 	/**
-	 * 截止报名时间，格式：yyyy-MM-dd HH:mm:ss。
+	 * 截止报名时间，格式：yyyy-MM-dd HH:mm。
 	 */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	@Column(name = "sign_up_end_date_time")
 	private String signUpEndDateTime;
 
