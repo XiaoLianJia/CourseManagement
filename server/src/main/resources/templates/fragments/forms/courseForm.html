@@ -11,12 +11,13 @@
         <div class="form-group">
             <label for="name"><em style="color: red">*</em>名称：</label>
             <input id="name" type="text" class="form-control"
-                   th:field="*{name}"/>
+                   th:field="*{name}" th:placeholder="请输入课程名称"/>
             <span th:if="${#fields.hasErrors('name')}" th:errors="*{username}" style="color: red"></span>
         </div>
         <div class="form-group">
             <label for="type">类型：</label>
-            <select id="type" class="form-control" th:field="*{type}">
+            <select id="type" class="form-control"
+                    th:field="*{type}" th:placeholder="请选择课程所属类型">
                 <option value="0">类型1</option>
                 <option value="1">类型2</option>
                 <option value="2">类型3</option>
@@ -26,47 +27,46 @@
         <div class="form-group">
             <label for="lessonCount">课时数：</label>
             <input id="lessonCount" type="number" class="form-control"
-                   th:field="*{lessonCount}"/>
+                   th:field="*{lessonCount}" th:placeholder="请输入课程总课时数，默认为0"/>
         </div>
         <div class="form-group">
             <label for="startDate">起始日期：</label>
             <input id="startDate" type="date" class="form-control"
-                   th:field="*{startDate}"/>
+                   th:field="*{startDate}" th:placeholder="请选择课程起始日期"/>
         </div>
         <div class="form-group">
             <label for="endDate">结束日期：</label>
             <input id="endDate" type="date" class="form-control"
-                   th:field="*{endDate}"/>
+                   th:field="*{endDate}" th:placeholder="请选择课程结束日期"/>
         </div>
         <div class="form-group">
             <label for="signUpStartDateTime">开放报名时间：</label>
             <input id="signUpStartDateTime" type="datetime-local" class="form-control"
-                   th:field="*{signUpStartDateTime}"/>
+                   th:field="*{signUpStartDateTime}" th:placeholder="请选择课程开放报名时间"/>
         </div>
         <div class="form-group">
             <label for="signUpEndDateTime">截止报名时间：</label>
             <input id="signUpEndDateTime" type="datetime-local" class="form-control"
-                   th:field="*{signUpEndDateTime}"/>
+                   th:field="*{signUpEndDateTime}" th:placeholder="请选择课程截止报名时间"/>
         </div>
         <div class="form-group">
             <label for="applicantsCount">报名人数：</label>
             <input id="applicantsCount" type="number" class="form-control"
-                   th:field="*{applicantsCount}"/>
+                   th:field="*{applicantsCount}" th:placeholder="请输入已报名学生人数，默认为0"/>
         </div>
         <div class="form-group">
             <label for="manager">负责人：</label>
             <input id="manager" type="text" class="form-control"
-                   th:field="*{manager}"/>
+                   th:field="*{manager}" th:placeholder="请输入课程负责人"/>
             <span th:if="${#fields.hasErrors('manager')}" th:errors="*{manager}" style="color: red"></span>
         </div>
         <div class="form-group">
             <label for="introduction">简介：</label>
             <textarea id="introduction" class="form-control"
-                      th:field="*{introduction}"></textarea>
+                      th:field="*{introduction}" th:placeholder="请简单介绍课程内容"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">提交</button>
         <button type="reset" class="btn btn-secondary">重置</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
     </form>
 </div>
 </html>
