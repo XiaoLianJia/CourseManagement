@@ -1,9 +1,11 @@
 package com.course.management.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
@@ -43,7 +45,8 @@ public class Course implements Serializable {
 	/**
 	 * 课时数，初始值为0。
 	 */
-	@Column(name = "lesson_count", nullable = false)
+	@Min(0)
+	@Column(name = "lesson_count")
 	private Integer lessonCount;
 
 	/**
@@ -77,7 +80,8 @@ public class Course implements Serializable {
 	/**
 	 * 报名人数，初始值为0。
 	 */
-	@Column(name = "applicants_count", nullable = false)
+	@Min(0)
+	@Column(name = "applicants_count")
 	private Integer applicantsCount;
 
 	/**
@@ -90,6 +94,7 @@ public class Course implements Serializable {
 	/**
 	 * 简介。
 	 */
+	@Length(max = 255, message = "最多255个字符")
 	@Column(name = "introduction")
 	private String introduction;
 }

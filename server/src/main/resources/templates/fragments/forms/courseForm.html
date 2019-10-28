@@ -1,0 +1,72 @@
+<!--
+    Description: 表单/课程表单
+    Author: zhangbin
+    Date: 2019-10-26
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="courseForm">
+    <form method="post" action="#"
+                th:action="@{/course/add}" th:object="${course}">
+        <div class="form-group">
+            <label for="name"><em style="color: red">*</em>名称：</label>
+            <input id="name" type="text" class="form-control"
+                   th:field="*{name}"/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{username}" style="color: red"></span>
+        </div>
+        <div class="form-group">
+            <label for="type">类型：</label>
+            <select id="type" class="form-control" th:field="*{type}">
+                <option value="0">类型1</option>
+                <option value="1">类型2</option>
+                <option value="2">类型3</option>
+                <option value="4">类型4</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="lessonCount">课时数：</label>
+            <input id="lessonCount" type="number" class="form-control"
+                   th:field="*{lessonCount}"/>
+        </div>
+        <div class="form-group">
+            <label for="startDate">起始日期：</label>
+            <input id="startDate" type="date" class="form-control"
+                   th:field="*{startDate}"/>
+        </div>
+        <div class="form-group">
+            <label for="endDate">结束日期：</label>
+            <input id="endDate" type="date" class="form-control"
+                   th:field="*{endDate}"/>
+        </div>
+        <div class="form-group">
+            <label for="signUpStartDateTime">开放报名时间：</label>
+            <input id="signUpStartDateTime" type="datetime-local" class="form-control"
+                   th:field="*{signUpStartDateTime}"/>
+        </div>
+        <div class="form-group">
+            <label for="signUpEndDateTime">截止报名时间：</label>
+            <input id="signUpEndDateTime" type="datetime-local" class="form-control"
+                   th:field="*{signUpEndDateTime}"/>
+        </div>
+        <div class="form-group">
+            <label for="applicantsCount">报名人数：</label>
+            <input id="applicantsCount" type="number" class="form-control"
+                   th:field="*{applicantsCount}"/>
+        </div>
+        <div class="form-group">
+            <label for="manager">负责人：</label>
+            <input id="manager" type="text" class="form-control"
+                   th:field="*{manager}"/>
+            <span th:if="${#fields.hasErrors('manager')}" th:errors="*{manager}" style="color: red"></span>
+        </div>
+        <div class="form-group">
+            <label for="introduction">简介：</label>
+            <textarea id="introduction" class="form-control"
+                      th:field="*{introduction}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+        <button type="reset" class="btn btn-secondary">重置</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+    </form>
+</div>
+</html>

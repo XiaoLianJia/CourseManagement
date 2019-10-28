@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * <p>
@@ -34,18 +33,24 @@ public class CourseController {
 
 	@RequestMapping("add")
 	public String add(@Valid @ModelAttribute Course course,
-							BindingResult result) {
-		log.info("add");
-
-		if (result.hasErrors()) {
-			List<ObjectError> error = result.getAllErrors();
-			for (ObjectError e : error) {
-				System.out.println(e);
+							BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			for (ObjectError error : bindingResult.getAllErrors()) {
+				System.out.println(error.getDefaultMessage());
 			}
+			return "redirect:courseDetail";
 		}
 
 		courseRepository.save(course);
 		return "redirect:courseInfo";
+	}
+
+	@RequestMapping("courseDetail")
+	public ModelAndView courseDetail() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("course", new Course());
+		modelAndView.setViewName("course/courseDetail");
+		return modelAndView;
 	}
 
 	@RequestMapping("courseInfo")

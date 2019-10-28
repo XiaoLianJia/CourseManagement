@@ -1,22 +1,15 @@
-<!--
-    Description: 课程管理/课程信息页
-    Author: zhangbin
-    Date: 2019-10-26
--->
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head::head(~{:: title},~{},~{})">
-    <title>课程信息</title>
+    <title>新增课程</title>
 </head>
 <body>
     <!-- 通用导航栏 -->
     <div th:replace="fragments/navigationBar :: navigationBar"></div>
     <!-- 页面主体 -->
     <div class="container" style="margin-top:80px">
-        <!-- 按钮 -->
-        <a class="btn btn-primary" href="/course/courseDetail" role="button">新增课程</a>
-        <!-- 数据表格 -->
-        <div th:replace="fragments/tables/courseInfoTable :: courseInfoTable"></div>
+        <!-- 课程表单 -->
+        <div th:replace="fragments/forms/courseForm :: courseForm"></div>
     </div>
     <!-- 通用页脚 -->
     <div th:replace="fragments/footer :: footer"></div>
