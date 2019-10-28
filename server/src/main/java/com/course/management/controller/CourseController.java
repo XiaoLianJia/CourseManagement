@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 /**
  * <p>
- *     课程管理页控制层
+ *     课程控制层
  * </p>
  * @author zhangbin
  * @date 2019-10-18
@@ -71,7 +71,6 @@ public class CourseController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("courses", courses);
-		modelAndView.addObject("course", new Course());
 		modelAndView.setViewName("course/courseInfo");
 		return modelAndView;
 	}

@@ -1,0 +1,13 @@
+<!--
+    Description: 表单/课时详情表单
+    Author: zhangbin
+    Date: 2019-10-28
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="lessonForm">
+    <form method="post" action="#"
+          th:action="@{/course/add}" th:object="${course}">
+    </form>
+</div>
+</html>
