@@ -43,24 +43,25 @@
     <!-- 分页导航 -->
     <nav aria-label="Pagination" th:if="${courses.totalPages gt 0}">
         <ul class="pagination justify-content-center font-weight-bold">
-            <li class="page-item" th:classappend="${courses.number eq 0} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/courses?page={id}(id=${courses.number lt 2 ? 1 : courses.number})}"
-                   aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+            <li class="page-item"
+                th:classappend="${courses.number eq 0} ? 'disabled'">
+                <a class="page-link" aria-label="Previous" title="Previous Page" data-toggle="tooltip"
+                   th:href="@{/course/courseInfo?page={id}(id=${courses.number lt 2 ? 1 : courses.number})}">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item" th:classappend="${i eq courses.number + 1} ? 'active'"
+            <li class="page-item"
+                th:classappend="${courses.number + 1 eq i} ? 'active'"
                 th:each="i : ${#numbers.sequence( 1, courses.totalPages, 1)}">
                 <a class="page-link" data-toggle="tooltip"
-                   th:href="@{/courses?page={id}(id=${i})}"
+                   th:href="@{/course/courseInfo?page={id}(id=${i})}"
                    th:text="${i}"
                    th:title="${'Page '+ i}" ></a>
             </li>
             <li class="page-item"
                 th:classappend="${courses.number + 1 eq courses.totalPages} ? 'disabled'">
                 <a class="page-link" aria-label="Next" title="Next Page" data-toggle="tooltip"
-                   th:href="@{/courses?page={id}(id=${courses.number + 2})}">
+                   th:href="@{/course/courseInfo?page={id}(id=${courses.number + 2})}">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

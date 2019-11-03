@@ -8,5 +8,49 @@
 <div th:fragment="lessonTable">
     <!-- 表格 -->
     <table id="table" class="table table-hover table-responsive-md">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>课程编码</th>
+            <th>上课时间</th>
+            <th>下课时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lesson, rowStat: ${lessons}"
+            th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+            <td th:text="${lesson.id}"></td>
+            <td th:text="${lesson.courseId}"></td>
+            <td th:text="${lesson.startDateTime}"></td>
+            <td th:text="${lesson.endDateTime}"></td>
+        </tr>
+        </tbody>
     </table>
+    <!-- 分页导航 -->
+    <nav aria-label="Pagination" th:if="${lessons.totalPages gt 0}">
+        <ul class="pagination justify-content-center font-weight-bold">
+            <li class="page-item"
+                th:classappend="${lessons.number eq 0} ? 'disabled'">
+                <a class="page-link" aria-label="Previous" title="Previous Page" data-toggle="tooltip"
+                   th:href="@{/lesson/lesson?page={id}(id=${lessons.number lt 2 ? 1 : lessons.number})}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"
+                th:classappend="${lessons.number + 1 eq i} ? 'active'"
+                th:each="i : ${#numbers.sequence( 1, lessons.totalPages, 1)}">
+                <a class="page-link" data-toggle="tooltip"
+                   th:href="@{/lesson/lessonInfo?page={id}(id=${i})}"
+                   th:text="${i}"
+                   th:title="${'Page '+ i}" ></a>
+            </li>
+            <li class="page-item"
+                th:classappend="${lessons.number + 1 eq lessons.totalPages} ? 'disabled'">
+                <a class="page-link" aria-label="Next" title="Next Page" data-toggle="tooltip"
+                   th:href="@{/lesson/lessonInfo?page={id}(id=${lessons.number + 2})}">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>

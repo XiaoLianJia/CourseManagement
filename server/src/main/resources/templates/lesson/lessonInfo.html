@@ -14,7 +14,7 @@
     <!-- 页面主体 -->
     <div class="container" style="margin-top:80px">
         <!-- 按钮 -->
-        <a class="btn btn-primary" href="/lesson/lessonInfo" role="button">新增课时</a>
+        <a class="btn btn-primary" th:href="@{/lesson/lessonInfo}" role="button">新增课时</a>
         <!-- 表格 -->
         <div th:replace="fragments/tables/lessonTable :: lessonTable"></div>
     </div>
